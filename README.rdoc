@@ -7,10 +7,23 @@ or gem so I have chosen to make it available as a Rails application.
 You can down load the application and see it running.  If you want to incorporate any of the
 code into your application then it's copy-and-paste -- at least for now.
 
-== Getting Started
+== Download
 
-=== Download
+  cd <desired_parent_directory>
+  git clone git://github.com/stevedowney/rails_utilities.git
 
-=== Generate the RDoc Documentation
+== Documentation
 
-=== Run the RSpec Tests
+Generate the RDoc:
+
+  rake doc:app
+  
+== Tests
+
+Run the tests:
+
+  rake spec
+  
+== Copyright
+
+Copyright (c) 2010 Steve Downey, released under the MIT license

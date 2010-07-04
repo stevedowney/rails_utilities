@@ -23,7 +23,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
 # Bundle gems for certain environments:
-# gem 'rspec', :group => :test
+gem "rspec-rails", ">= 2.0.0.beta.13", :group => :test
 # group :test do
 #   gem 'webrat'
 # end
