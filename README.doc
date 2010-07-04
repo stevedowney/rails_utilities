@@ -1,0 +1,16 @@
+= Rails Utility Application
+
+Over many years and many Rails applications I have accumulated a lot of code that I find
+useful in most or all of my applications.  This code is not always worthy of its own plug-in
+or gem so I have chosen to make it available as a Rails application.  
+
+You can down load the application and see it running.  If you want to incorporate any of the
+code into your application then it's copy-and-paste -- at least for now.
+
+== Getting Started
+
+=== Download
+
+=== Generate the RDoc Documentation
+
+=== Run the RSpec Tests
