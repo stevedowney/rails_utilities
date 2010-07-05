@@ -4,7 +4,7 @@ Over many years and many Rails applications I have accumulated a lot of code tha
 useful in most or all of my applications.  This code is not always worthy of its own plug-in
 or gem so I have chosen to make it available as a Rails application.  
 
-You can down load the application and see it running.  If you want to incorporate any of the
+You can download the application and see it running.  If you want to incorporate any of the
 code into your application then it's copy-and-paste -- at least for now.
 
 == Download
@@ -18,6 +18,17 @@ Generate the RDoc:
 
   rake doc:app
   
+== What's Inside
+
+You will need to download the application and generate the RDoc to see everything.  For now a taste:
+
+* App - miscellaneous methods
+* App::Dir - directory methods
+* App::Env - Rails environment methods
+* App::File - file methods
+* App::OS - operating system methods
+* LinkHelper - view helper methods for links
+
 == Tests
 
 Run the tests:
