@@ -27,6 +27,7 @@ You will need to download the application and generate the RDoc to see everythin
 * App::Env - Rails environment methods
 * App::File - file methods
 * App::OS - operating system methods
+* Array.in - help building sql statements
 * LinkHelper - view helper methods for links
 
 == Tests

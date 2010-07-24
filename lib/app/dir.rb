@@ -14,6 +14,10 @@ module App
       Rails.root.join('config', 'environments')
     end
     
+    def lib_dir
+      Rails.root.join('lib')
+    end
+    
     def log_dir
       Rails.root.join('log')
     end

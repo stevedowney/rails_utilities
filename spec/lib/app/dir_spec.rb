@@ -10,6 +10,10 @@ describe App::Dir do
     App::Dir.environments_dir.should == Pathname.new("#{::Rails.root}/config/environments")
   end
 
+  it "should return lib_dir" do
+    App::Dir.lib_dir.should == Pathname.new("#{::Rails.root}/lib")
+  end
+  
   it "should return log_dir" do
     App::Dir.log_dir.should == Pathname.new("#{::Rails.root}/log")
   end
