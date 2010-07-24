@@ -4,26 +4,34 @@
 # so that App::SubModule.foo is available at App:foo.
 module App
   module_function
-  # :call-seq: 
-  #   log_to_screen(message, &block)
-  #
-  # Prints a message to screen for long-running tasks.  Yields to block and does _no_ printing
+  # Prints a message to screen for long-running tasks.  Yields to block.  Does _no_ printing
   # in +test+ environment.
   #
+  # @param [String] message the (starting) message to print to STDOUT
+  # @param [Block] &block code containing the long-running process
+  # 
+  # @example Show the start/stop of a long-running process:
   #   log_to_screen("Starting long process") do
   #     long_proces()
   #   end
   #
-  # Initially displays:
+  #   # Initially displays:                "Starting long process ..."
+  #   # and when block finishes executing: "Starting long process ... done"
   #
-  #   "Starting long process ..."
+  # @example Show progress:
+  #   log_to_screen("Starting long process") do
+  #     10.times do
+  #       sleep 1
+  #       print "."
+  #     end
+  #   end
   #
-  # and when block finishes executing:
+  #   # Initially displays:             "Starting long process ..."
+  #   # prints a "." each iteration,
+  #   # when block finishes executing:  "Starting long process ... ..........done"
   #
-  #   "Starting long process ... done"
-  #
-  # Inside your long running process you may want to show some progress, i.e., <tt>print "."</tt>
-  def log_to_screen(message)
+  #   # (You may need to call #sync or #flush on STDOUT if your OS is buffering output.)
+  def log_to_screen(message, &block)
     if test?
       yield
     else

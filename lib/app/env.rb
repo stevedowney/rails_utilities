@@ -3,34 +3,38 @@ module App
   #
   # For each file in <tt>config/environment</tt>, constants and predicate methods are defined.
   #
-  #   > App::Env.environment
-  #   => "development"
-  #
-  #   > App::Env::DEVELOPMENT
-  #   => "development"
-  #
-  #   > App::Env.development?
-  #   => true
-  #
-  #   > App::Env.not_development?
-  #   => false
+  #   App::Env.environment  #=> "development"
+  #   App::Env::DEVELOPMENT #=> "development"
+  #   App::Env.development? #=> true
+  #   App::Env.not_development? #=> false
   #
   # Instead of:
   #
-  #   if Rails.env == 'development' ...
+  #   if Rails.env == 'development'
+  #     # do stuff
+  #   end
   #
   # or worse:
   #
-  #   if Rails.env == 'develpomnet' ... # see the typo?
+  #   if Rails.env == 'develpomnet' # see the typo?
+  #     # do stuff
+  #   end
   #
   # you can do:
   #
-  #   if Rails.env == App::Env::DEVELOPMENT ...
+  #   if Rails.env == App::Env::DEVELOPMENT
+  #     # do stuff
+  #   end
   #
   # or better still:
   #
-  #   if App::Env.development? ...
-  #   if App::Env.not_development? ...
+  #   if App::Env.development?
+  #     # do stuff
+  #   end
+  #
+  #   if App::Env.not_development?
+  #     # do stuff
+  #   end
   module Env
     module_function
 
@@ -57,14 +61,15 @@ module App
     end
 
     # Returns current environment.  (Same as <tt>Rails.env</tt>.)
+    # @return [String]
     def environment
       Rails.env
     end
     
-    # Returns list (Array of String) of all Rails environments defined in <tt>config/environments</tt>
-    #   > App::Env.environments
-    #   => ["ci", "development", "production", "staging", "test"]
-    #
+    # Returns Rails environments defined in <tt>config/environments</tt>
+    # @example
+    #   App::Env.environments  #=> ["development", "production", "test"]
+    # @return [Array<String>]
     def environments
       @@environments
     end

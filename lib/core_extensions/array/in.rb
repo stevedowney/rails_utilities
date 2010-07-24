@@ -3,8 +3,9 @@ class Array
   # Returns SQL IN clause from Array for help building SQL statements:
   #
   # @param [Hash] options
-  # @option options [Boolean] :numeric (false) +true+ to force numeric type
-  # @option options [String, Numeric] :default ('__default__', -1) value to use when called on empty Array
+  # @option options [Boolean] :numeric (false) set to +true+ to force numeric type
+  # @option options [String] :default ('__default__') value to use when called on empty Array of String
+  # @option options [Numeric] :default (-1) value to use when called on empty Array of Numeric
   # @return [String] parenthesized, comma-separated list of values (quoted if they are not numeric)
   #
   # @example String Array

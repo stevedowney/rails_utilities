@@ -60,8 +60,6 @@ module App
       end
     end
     
-    # Make methods public
-    # @private
     public *(methods(false))
     
     # Wrapper around Config to facilitate unit testing.
