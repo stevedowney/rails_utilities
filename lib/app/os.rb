@@ -10,7 +10,8 @@ module App
   #
   # A call to any method on an unkown platform will raise App::OS::UnknownOSError.
   #
-  # All App::OS methods are available in the App namespace, i.e. App.windows? is the same thing as App::OS.windows?
+  # All App::OS methods are available in the {App App} namespace, i.e., App.windows? is 
+  # the same thing as App::OS.windows?
   module OS
     
     # Raised when App::OS encounters an unknown OS (from <tt>Config::CONFIG['target_os']</tt>).
@@ -24,6 +25,7 @@ module App
     module_function
 
     # Returns +true+ for Windows platforms
+    # @return [Boolean]
     def windows?
       os == WINDOWS
     end
@@ -44,6 +46,7 @@ module App
     end
     
     # Returns the operating system as one of the Constants.
+    # @return [String] one of the CONSTANTS
     def os
       case target_os
       when /linux/i
@@ -57,9 +60,12 @@ module App
       end
     end
     
+    # Make methods public
+    # @private
     public *(methods(false))
     
     # Wrapper around Config to facilitate unit testing.
+    # @private
     def target_os #:nodoc:
       Config::CONFIG['target_os']
     end

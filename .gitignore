@@ -1,6 +1,7 @@
 .bundle
 db/*.sqlite3
-doc/app
+doc
 log/*.log
 sandbox
 tmp/**/*
+.yardoc

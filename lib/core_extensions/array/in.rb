@@ -2,6 +2,12 @@ class Array
 
   # Returns SQL IN clause from Array for help building SQL statements:
   #
+  # @param [Hash] options
+  # @option options [Boolean] :numeric (false) +true+ to force numeric type
+  # @option options [String, Numeric] :default ('__default__', -1) value to use when called on empty Array
+  # @return [String] parenthesized, comma-separated list of values (quoted if they are not numeric)
+  #
+  # @example String Array
   #   ids = %w(a b c)
   #   "select * from foo where id in #{ids.in}"  #=>  "select * from foo where id in ('a','b','c')"
   #
@@ -9,20 +15,16 @@ class Array
   #   [].in                      #=> "('__default__')"
   #   [].in(:default => 'foo')   #=> "('foo')"
   #
-  # Detects when Array consists entirely of numbers
-  #
+  # @example Numeric Array
   #   ids = [1,2,3]
   #   "select * from foo where id in #{ids.in}"  #=>  "select * from foo where id in (1,2,3)"
   #
   #   [1, 2].in                                #=> "(1,2)"
   #   [].in(:numeric => true)                  #=> "(-1)"
-  #   [].in(:numeric => true, default => 100)  #=> "(100)"
+  #   [].in(:numeric => true, :default => 100)  #=> "(100)"
   #
   #   # not all are numbers!
   #   [1, 2, 'c'].in      #=> "('1', '2', 'c')"
-  #
-  # @param [Hash] options
-  # @return [String] parenthesized, comma-separated list of values (quoted if they are not numeric)
   def in(options = {})
     numeric = options[:numeric] || (present? && all? { |e| e.is_a?(Numeric) })
     if numeric
