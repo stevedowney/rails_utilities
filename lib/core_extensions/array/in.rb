@@ -2,6 +2,9 @@ class Array
 
   # Returns SQL IN clause from Array for help building SQL statements:
   #
+  # @param [Hash] options
+  # @returns [String] parenthesized, comma-separated list of values (quoted if they are not numeric)
+  #
   #   ids = %w(a b c)
   #   "select * from foo where id in #{ids.in}"  #=>  "select * from foo where id in ('a','b','c')"
   #
