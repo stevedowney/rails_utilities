@@ -3,6 +3,10 @@
 # Various utility methods are defined here; sub-modules of App have their methods mixed-in (sort of)
 # so that App::SubModule.foo is available at App:foo.
 module App
+  
+  # See discussion at http://www.ruby-forum.com/topic/62553
+  VALID_IP_REGEX = /\A(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)(?:\.(?:25[0-5]|(?:2[0-4]|1\d|[1-9])?\d)){3}\z/
+  
   module_function
   # Prints a message to screen for long-running tasks.  Yields to block.  Does _no_ printing
   # in +test+ environment.

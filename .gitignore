@@ -3,5 +3,6 @@ db/*.sqlite3
 doc
 log/*.log
 sandbox
+*.tmproj
 tmp/**/*
 .yardoc

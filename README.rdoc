@@ -36,6 +36,11 @@ Run the tests:
 
   rake spec
   
+== TODO
+
+* have validates_* methods accept array of attributes
+* specs for A/R methods
+
 == Copyright
 
 Copyright (c) 2010 Steve Downey, released under the MIT license
